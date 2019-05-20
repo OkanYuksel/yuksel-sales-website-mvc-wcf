@@ -1,0 +1,256 @@
+﻿
+@{
+    ViewBag.Title = "ControlPanel";
+
+    if (Session["user_id"] == null || Session["user_id"].ToString() == "")
+    {
+        Response.Redirect("../Home/Login");
+        return;
+    }
+}
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Okan YUKSEL Sales Website">
+    <meta name="author" content="Okan YUKSEL">
+    <meta name="keywords" content="Sales Web Site">
+    <!-- Title Page-->
+    <title>Forms</title>
+    <!-- Fontfaces CSS-->
+    <link href="~/css/font-face.css" rel="stylesheet" media="all">
+    <link href="~/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
+    <link href="~/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <link href="~/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+    <!-- Bootstrap CSS-->
+    <link href="~/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
+    <!-- Vendor CSS-->
+    <link href="~/vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
+    <link href="~/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
+    <link href="~/vendor/wow/animate.css" rel="stylesheet" media="all">
+    <link href="~/vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
+    <link href="~/vendor/slick/slick.css" rel="stylesheet" media="all">
+    <link href="~/vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="~/vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
+    <!-- Main CSS-->
+    <link href="~/css/theme.css" rel="stylesheet" media="all">
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/js/controlPanel_functions.js?v=" +math.random()></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+    <script>
+        window.onload = function () {
+            var tabcontent;
+            tabcontent = document.getElementById('defaultOpen').onclick();
+            document.getElementById('defaultOpen').onclick();
+        };
+
+        function openPage(pageName) {
+
+            // Hide all elements with class="tabcontent" by default */
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+
+            // Remove the background color of all tablinks/buttons
+            tablinks = document.getElementsByClassName("tablink");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].style.backgroundColor = "";
+            }
+
+            // Show the specific tab content
+
+            document.getElementById(pageName).style.display = "block";
+        }
+
+    </script>
+</head>
+<body class="animsition" style="background-color:#e5e5e5;">
+    <div class="page-wrapper">
+        <!-- HEADER MOBILE-->
+        <header class="header-mobile d-block d-lg-none">
+            <div class="header-mobile__bar">
+                <div class="container-fluid">
+                    <div class="header-mobile-inner">
+                        <a class="logo" href="@Url.Action("Index", "Home")">
+                            <img src="~/img/logo.png" alt="CoolAdmin" />
+                        </a>
+                        <button class="hamburger hamburger--slider" type="button">
+                            <span class="hamburger-box">
+                                <span class="hamburger-inner"></span>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <nav class="navbar-mobile">
+                <div class="container-fluid">
+                    <ul class="navbar-mobile__list list-unstyled">
+                        <li style="cursor: pointer;" class="list-group-item list-group-item-primary" onclick="openPage('TabUpdateProducts')">
+                                Products
+                        </li>
+                        <li style="cursor: pointer;" class="list-group-item list-group-item-secondary"  onclick="openPage('TabAddProduct')">
+                                Add New Product
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- END HEADER MOBILE-->
+        <!-- MENU SIDEBAR-->
+        <aside class="menu-sidebar d-none d-lg-block">
+            <div class="logo">
+                <a href="@Url.Action("Index", "Home")">
+                    <img src="~/img/logo.png" alt="Cool Admin" />
+                </a>
+            </div>
+            <div class="menu-sidebar__content js-scrollbar1" style="background-color:#998A8A">
+                    <ul class="list-group">
+                        <li style="cursor: pointer;" class="list-group-item list-group-item-primary" id="defaultOpen"  onclick="openPage('TabUpdateProducts')">
+                          Products
+                        </li>
+                        <li style="cursor: pointer;" class="list-group-item list-group-item-secondary" onclick="openPage('TabAddProduct')">
+                         Add New Product          
+                        </li>
+                    </ul>
+            </div>
+        </aside>
+        <!-- END MENU SIDEBAR-->
+        <!-- PAGE CONTAINER-->
+        <div class="page-container">
+            <!-- HEADER DESKTOP-->
+            <header class="header-desktop">
+                <div class="page-header" style="margin:20px 30px;">
+                    <h1>
+                        Control Panel
+                        <small>for Sales Website</small>
+                    </h1>
+                </div>
+            </header>
+            <!-- HEADER DESKTOP-->
+            <!-- MAIN CONTENT-->
+            <div class="main-content">
+                <div id="TabAddProduct" class="tabcontent">
+                    <div class="section__content section__content--p30">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <strong>Add New Product</strong> Form
+                                        </div>
+                                        <div class="card-body card-block">
+                                            <form action="" method="post" class="form-horizontal">
+                                                <div class="row form-group">
+                                                    <div class="col col-md-3">
+                                                        <label for="hf-email" class=" form-control-label">Product Name</label>
+                                                    </div>
+                                                    <div class="col-12 col-md-9">
+                                                        <input id="txtAddProductName" class="form-control" type="text" placeholder="Product Name">
+                                                        <span class="help-block">Please enter product name</span>
+                                                    </div>
+                                                </div>
+                                                <div class="row form-group">
+                                                    <div class="col col-md-3">
+                                                        <label for="hf-email" class=" form-control-label">Product Price</label>
+                                                    </div>
+                                                    <div class="col-12 col-md-9">
+                                                        <input id="txtAddProductPrice" class="form-control"  onkeypress='return event.charCode>= 48 &&event.charCode<= 57' inputmode="numeric" min="1" type="number" placeholder="Product Price In Dolar Base ">
+                                                        <span class="help-block">Please enter product price</span>
+                                                    </div>
+                                                </div>
+                                                <div class="row form-group">
+                                                    <div class="col col-md-3">
+                                                        <label for="hf-email" class=" form-control-label">Product Stock</label>
+                                                    </div>
+                                                    <div class="col-12 col-md-9">
+                                                        <input id="txtAddProductStock" class="form-control" onkeypress='return event.charCode>= 48 &&event.charCode<= 57' inputmode="numeric" min="1" type="number" placeholder="Product Stock ">
+                                                        <span class="help-block">Please enter product stock</span>
+                                                    </div>
+                                                </div>
+                                                <div class="row form-group">
+                                                    <div class="col col-md-3">
+                                                        <label for="hf-email" class=" form-control-label">Product Description</label>
+                                                    </div>
+                                                    <div class="col-12 col-md-9">
+                                                        <input id="txtAddProductDescription" class="form-control" type="text" placeholder="Product Description">
+                                                        <span class="help-block">Please enter product description</span>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="card-footer">
+                                            <button type="submit" class="btn btn-primary btn-sm" onclick="AddNewProductFunction()">
+                                                <i class="fa fa-dot-circle-o"></i> Add New Product
+                                            </button>
+                                            <button type="reset" class="btn btn-danger btn-sm" onclick="AddNewProductFormCleaner()">
+                                                <i class="fa fa-ban"></i> Reset
+                                            </button>
+                                            @*<input type="file" id="fileup" onchange="uploadFile();" name="files[]" multiple="">*@
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="TabUpdateProducts" class="tabcontent">
+                    <!---TABLE CONTENT-->
+                    <div class="table-responsive table-responsive-data2" ng-controller="myCtrl">
+                        <table class="table table-data2" id="tableProducts">
+                            <thead>
+                                <tr>
+                                    <th>Code</th>
+                                    <th>Name</th>
+                                    <th>Stock</th>
+                                    <th>Price</th>
+                                    @*<th></th>*@
+                                </tr>
+                            </thead>
+                            <tbody ng-repeat="x in records">
+                                <tr class="tr-shadow"  >
+                                    <td class="nr">{{x.product_code}}</td>
+                                    <td>{{x.product_name}}</td>
+                                    <td>{{x.product_stock_count}}</td>
+                                    <td>{{x.product_price}}</td>
+                                 @*   <td><button type="button" class="btn btn-warning" ng-click="updateProduct($index)">Update This Product</button></td>*@
+                                </tr>
+                                <tr class="spacer"></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!---TABLE CONTENT END-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Jquery JS-->
+    <script src="~/vendor/jquery/jquery.min.js"></script>
+    <!-- Bootstrap JS-->
+    <script src="~/vendor/bootstrap-4.1/popper.min.js"></script>
+    <link href="~/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Vendor JS       -->
+    <script src="~/vendor/slick/slick.min.js">
+    </script>
+    <script src="~/vendor/wow/wow.min.js"></script>
+    <script src="~/vendor/animsition/animsition.min.js"></script>
+    <script src="~/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
+    </script>
+    <script src="~/vendor/counter-up/jquery.waypoints.min.js"></script>
+    <script src="~/vendor/counter-up/jquery.counterup.min.js">
+    </script>
+    <script src="~/vendor/circle-progress/circle-progress.min.js"></script>
+    <script src="~/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="~/vendor/chartjs/Chart.bundle.min.js"></script>
+    <script src="~/vendor/select2/select2.min.js">
+    </script>
+    <!-- Main JS-->
+    <script src="~/js/main.js"></script>
+</body>
+
+</html>
+<!-- end document-->

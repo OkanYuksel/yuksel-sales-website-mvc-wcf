@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="clsGetProducts" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:38456/Service.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:38456/Service.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IGetProducts_getProducts_InputMessage">
+    <wsdl:part name="parameters" element="tns:getProducts" />
+  </wsdl:message>
+  <wsdl:message name="IGetProducts_getProducts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getProductsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGetProducts_buyProduct_InputMessage">
+    <wsdl:part name="parameters" element="tns:buyProduct" />
+  </wsdl:message>
+  <wsdl:message name="IGetProducts_buyProduct_OutputMessage">
+    <wsdl:part name="parameters" element="tns:buyProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGetProducts_AddNewProduct_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddNewProduct" />
+  </wsdl:message>
+  <wsdl:message name="IGetProducts_AddNewProduct_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddNewProductResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IGetProducts">
+    <wsdl:operation name="getProducts">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGetProducts/getProducts" message="tns:IGetProducts_getProducts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGetProducts/getProductsResponse" message="tns:IGetProducts_getProducts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="buyProduct">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGetProducts/buyProduct" message="tns:IGetProducts_buyProduct_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGetProducts/buyProductResponse" message="tns:IGetProducts_buyProduct_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddNewProduct">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGetProducts/AddNewProduct" message="tns:IGetProducts_AddNewProduct_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGetProducts/AddNewProductResponse" message="tns:IGetProducts_AddNewProduct_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:service name="clsGetProducts" />
+</wsdl:definitions>
