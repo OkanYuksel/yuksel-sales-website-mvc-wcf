@@ -1,0 +1,13 @@
+C:\Users\pc\Source\Repos\Yuksel_Sales_Website_MVC_WCF\WcfServiceLibrary\bin\Release\WcfServiceLibrary.dll.config
+C:\Users\pc\Source\Repos\Yuksel_Sales_Website_MVC_WCF\WcfServiceLibrary\bin\Release\WcfServiceLibrary.dll
+C:\Users\pc\Source\Repos\Yuksel_Sales_Website_MVC_WCF\WcfServiceLibrary\bin\Release\WcfServiceLibrary.pdb
+C:\Users\pc\Source\Repos\Yuksel_Sales_Website_MVC_WCF\WcfServiceLibrary\bin\Release\EntityFramework.dll
+C:\Users\pc\Source\Repos\Yuksel_Sales_Website_MVC_WCF\WcfServiceLibrary\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\pc\Source\Repos\Yuksel_Sales_Website_MVC_WCF\WcfServiceLibrary\bin\Release\Newtonsoft.Json.dll
+C:\Users\pc\Source\Repos\Yuksel_Sales_Website_MVC_WCF\WcfServiceLibrary\bin\Release\EntityFramework.xml
+C:\Users\pc\Source\Repos\Yuksel_Sales_Website_MVC_WCF\WcfServiceLibrary\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\pc\Source\Repos\Yuksel_Sales_Website_MVC_WCF\WcfServiceLibrary\bin\Release\Newtonsoft.Json.xml
+C:\Users\pc\Source\Repos\Yuksel_Sales_Website_MVC_WCF\WcfServiceLibrary\obj\Release\WcfServiceLibrary.csprojResolveAssemblyReference.cache
+C:\Users\pc\Source\Repos\Yuksel_Sales_Website_MVC_WCF\WcfServiceLibrary\obj\Release\WcfServiceLibrary.csproj.CoreCompileInputs.cache
+C:\Users\pc\Source\Repos\Yuksel_Sales_Website_MVC_WCF\WcfServiceLibrary\obj\Release\WcfServiceLibrary.dll
+C:\Users\pc\Source\Repos\Yuksel_Sales_Website_MVC_WCF\WcfServiceLibrary\obj\Release\WcfServiceLibrary.pdb
