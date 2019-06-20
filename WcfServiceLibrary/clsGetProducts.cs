@@ -125,6 +125,31 @@ namespace WcfServiceLibrary
             }
         }
 
+        public string DeleteProduct(int product_code)
+        {
+            if (product_code > 0)
+            {
+                try
+                {
+                    using (var context = new SalesDBEntities())
+                    {
+                        Products product_for_delete = context.Products.First(u => u.product_code == product_code);
+                        context.Products.Remove(product_for_delete);
+                        context.SaveChanges();
+                    }
+                    return "Success";
+                }
+                catch (Exception ex)
+                {
+                    return ex.ToString();
+                }
+            }
+            else
+            {
+                return "Error. Request Paremeters Are Invalid.";
+            }
+        }
+
         public int UserValidation(string username, string password)
         {
             if (username != "" && password != "")

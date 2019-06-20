@@ -91,10 +91,10 @@
                 <div class="container-fluid">
                     <ul class="navbar-mobile__list list-unstyled">
                         <li style="cursor: pointer;" class="list-group-item list-group-item-primary" onclick="openPage('TabUpdateProducts')">
-                                Products
+                            Products
                         </li>
-                        <li style="cursor: pointer;" class="list-group-item list-group-item-secondary"  onclick="openPage('TabAddProduct')">
-                                Add New Product
+                        <li style="cursor: pointer;" class="list-group-item list-group-item-secondary" onclick="openPage('TabAddProduct')">
+                            Add New Product
                         </li>
                     </ul>
                 </div>
@@ -109,14 +109,14 @@
                 </a>
             </div>
             <div class="menu-sidebar__content js-scrollbar1" style="background-color:#998A8A">
-                    <ul class="list-group">
-                        <li style="cursor: pointer;" class="list-group-item list-group-item-primary" id="defaultOpen"  onclick="openPage('TabUpdateProducts')">
-                          Products
-                        </li>
-                        <li style="cursor: pointer;" class="list-group-item list-group-item-secondary" onclick="openPage('TabAddProduct')">
-                         Add New Product          
-                        </li>
-                    </ul>
+                <ul class="list-group">
+                    <li style="cursor: pointer;" class="list-group-item list-group-item-primary" id="defaultOpen" onclick="openPage('TabUpdateProducts')">
+                        Products
+                    </li>
+                    <li style="cursor: pointer;" class="list-group-item list-group-item-secondary" onclick="openPage('TabAddProduct')">
+                        Add New Product
+                    </li>
+                </ul>
             </div>
         </aside>
         <!-- END MENU SIDEBAR-->
@@ -159,7 +159,7 @@
                                                         <label for="hf-email" class=" form-control-label">Product Price</label>
                                                     </div>
                                                     <div class="col-12 col-md-9">
-                                                        <input id="txtAddProductPrice" class="form-control"  onkeypress='return event.charCode>= 48 &&event.charCode<= 57' inputmode="numeric" min="1" type="number" placeholder="Product Price In Dolar Base ">
+                                                        <input id="txtAddProductPrice" class="form-control" onkeypress='return event.charCode>= 48 &&event.charCode<= 57' inputmode="numeric" min="1" type="number" placeholder="Product Price In Dolar Base ">
                                                         <span class="help-block">Please enter product price</span>
                                                     </div>
                                                 </div>
@@ -212,12 +212,16 @@
                                 </tr>
                             </thead>
                             <tbody ng-repeat="x in records">
-                                <tr class="tr-shadow"  >
+                                <tr class="tr-shadow">
                                     <td class="nr">{{x.product_code}}</td>
                                     <td>{{x.product_name}}</td>
                                     <td>{{x.product_stock_count}}</td>
                                     <td>{{x.product_price}}</td>
-                                 @*   <td><button type="button" class="btn btn-warning" ng-click="updateProduct($index)">Update This Product</button></td>*@
+                                    @*   <td><button type="button" class="btn btn-warning" ng-click="updateProduct($index)">Update This Product</button></td>*@
+                                    <td>
+                                      @*  <button id="btnUpdate" type="button" class="open-homeEvents btn btn-warning" data-toggle="modal" attr.data-id="{{x.product_code}}" sample-id="{{x.product_name}}" data-target="#UpdateModal">UPDATE</button>*@
+                                        <button  id="btnUpdate" type="button" class="open-homeEvents btn btn-warning" attr.data-id="{{x.product_code}}" attr.data-count="{{x.product_stock_count}}" onclick="updateModalLoaderFunc(event)" data-toggle="modal" data-target="#UpdateModal">UPDATE</button>
+                                    </td>
                                 </tr>
                                 <tr class="spacer"></tr>
                             </tbody>
@@ -228,6 +232,36 @@
             </div>
         </div>
     </div>
+
+    <div class="modal" id="UpdateModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document" style="position:initial;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">X</span></button>
+                </div>
+                <div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>Product Code:</label>
+                            @Html.TextBox("txtProductCode")
+                        </div>
+                        <div class="form-group">
+                            <label>Count:</label>
+                            <input id="inputStockCount" type="number" min="1" name="count" value="1" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <button onclick="ProductDeleteFunction()" class="btn btn-danger">Delete This Product</button>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button onclick="UpdateCompleteFunction()" class="btn btn-primary">Update This Product</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Jquery JS-->
     <script src="~/vendor/jquery/jquery.min.js"></script>
     <!-- Bootstrap JS-->

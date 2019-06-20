@@ -46,7 +46,7 @@ function AddNewProductFunction() {
             contentType: "application/json; charset=utf-8",
             success: function (msg) {
                 $(function () {
-                    alert("success");
+                    alert("Success");
                     document.location.reload(true);
                 });
             },
@@ -64,3 +64,51 @@ function AddNewProductFormCleaner() {
     document.getElementById("txtAddProductDescription").value = "";
 }
 
+function updateModalLoaderFunc(event) {
+    var product_code = event.currentTarget.getAttribute('attr.data-id');
+    var product_stock_count = event.currentTarget.getAttribute('attr.data-count')
+    document.getElementById("txtProductCode").value = product_code;
+    document.getElementById("txtProductCode").readOnly = true;
+    document.getElementById("inputStockCount").value = product_stock_count;
+}
+
+function UpdateCompleteFunction() {
+    var product_code = document.getElementById("txtProductCode").value;
+    var product_new_stock_count = document.getElementById("inputStockCount").value;
+    var product = { product_code: product_code, product_stock_count: product_new_stock_count};
+    $.ajax({
+        type: 'POST',
+        url: "/Data/UpdateProductStock",
+        data: JSON.stringify(product),
+        contentType: "application/json; charset=utf-8",
+        success: function (msg) {
+            $(function () {
+                alert("Success");
+                document.location.reload(true);
+            });
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            alert('error');
+        }
+    })
+}
+
+function ProductDeleteFunction() {
+    var product_code = document.getElementById("txtProductCode").value;
+    var product = { product_code: product_code};
+    $.ajax({
+        type: 'POST',
+        url: "/Data/DeleteProduct",
+        data: JSON.stringify(product),
+        contentType: "application/json; charset=utf-8",
+        success: function (msg) {
+            $(function () {
+                alert("Success");
+                document.location.reload(true);
+            });
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            alert('error');
+        }
+    })
+}
