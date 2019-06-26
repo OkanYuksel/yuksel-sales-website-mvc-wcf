@@ -78,6 +78,9 @@
     <Compile Include="IGetProducts.cs" />
     <Compile Include="IService1.cs" />
     <Compile Include="Product.cs" />
+    <Compile Include="ProductCategory.cs">
+      <DependentUpon>DbModal.tt</DependentUpon>
+    </Compile>
     <Compile Include="Products.cs">
       <DependentUpon>DbModal.tt</DependentUpon>
     </Compile>

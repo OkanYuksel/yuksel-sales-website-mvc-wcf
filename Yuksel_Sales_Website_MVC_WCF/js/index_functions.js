@@ -1,4 +1,4 @@
-﻿var app = angular.module("myApp", []);
+﻿var app = angular.module("myApp", ["angularUtils.directives.dirPagination"]);
 
 app.controller("myCtrl", function ($scope, $http) {
     //All products calling for shopping cards.

@@ -19,5 +19,6 @@ namespace WcfServiceLibrary
         public string product_description { get; set; }
         public double product_price { get; set; }
         public int product_stock_count { get; set; }
+        public Nullable<int> product_category_id { get; set; }
     }
 }

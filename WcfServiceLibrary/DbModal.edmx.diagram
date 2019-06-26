@@ -8,6 +8,7 @@
         <EntityTypeShape EntityType="SalesDBModel.Products" Width="1.875" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SalesDBModel.Users" Width="1.5" PointX="4.625" PointY="0.75" />
         <EntityTypeShape EntityType="SalesDBModel.Sales" Width="1.5" PointX="2.875" PointY="0.75" />
+        <EntityTypeShape EntityType="SalesDBModel.ProductCategory" Width="1.5" PointX="0.75" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

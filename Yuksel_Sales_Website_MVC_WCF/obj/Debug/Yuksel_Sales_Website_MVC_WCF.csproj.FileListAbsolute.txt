@@ -29,3 +29,9 @@ C:\Users\pc\Source\Repos\Yuksel_Sales_Website_MVC_WCF\Yuksel_Sales_Website_MVC_W
 C:\Users\pc\Source\Repos\Yuksel_Sales_Website_MVC_WCF\Yuksel_Sales_Website_MVC_WCF\obj\Debug\Yuksel_Sales_Website_MVC_WCF.csproj.CoreCompileInputs.cache
 C:\Users\pc\Source\Repos\Yuksel_Sales_Website_MVC_WCF\Yuksel_Sales_Website_MVC_WCF\obj\Debug\Yuksel_Sales_Website_MVC_WCF.dll
 C:\Users\pc\Source\Repos\Yuksel_Sales_Website_MVC_WCF\Yuksel_Sales_Website_MVC_WCF\obj\Debug\Yuksel_Sales_Website_MVC_WCF.pdb
+C:\Users\pc\Source\Repos\Yuksel_Sales_Website_MVC_WCF\Yuksel_Sales_Website_MVC_WCF\bin\EntityFramework.dll
+C:\Users\pc\Source\Repos\Yuksel_Sales_Website_MVC_WCF\Yuksel_Sales_Website_MVC_WCF\bin\EntityFramework.SqlServer.dll
+C:\Users\pc\Source\Repos\Yuksel_Sales_Website_MVC_WCF\Yuksel_Sales_Website_MVC_WCF\bin\PagedList.dll
+C:\Users\pc\Source\Repos\Yuksel_Sales_Website_MVC_WCF\Yuksel_Sales_Website_MVC_WCF\bin\EntityFramework.xml
+C:\Users\pc\Source\Repos\Yuksel_Sales_Website_MVC_WCF\Yuksel_Sales_Website_MVC_WCF\bin\EntityFramework.SqlServer.xml
+C:\Users\pc\Source\Repos\Yuksel_Sales_Website_MVC_WCF\Yuksel_Sales_Website_MVC_WCF\bin\PagedList.xml

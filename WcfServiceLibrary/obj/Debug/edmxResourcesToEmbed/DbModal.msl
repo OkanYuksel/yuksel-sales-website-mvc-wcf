@@ -4,6 +4,7 @@
     <EntitySetMapping Name="Products">
       <EntityTypeMapping TypeName="SalesDBModel.Products">
         <MappingFragment StoreEntitySet="Products">
+          <ScalarProperty Name="product_category_id" ColumnName="product_category_id" />
           <ScalarProperty Name="product_stock_count" ColumnName="product_stock_count" />
           <ScalarProperty Name="product_code" ColumnName="product_code" />
           <ScalarProperty Name="product_name" ColumnName="product_name" />
@@ -28,6 +29,14 @@
           <ScalarProperty Name="sale_count" ColumnName="sale_count" />
           <ScalarProperty Name="product_code" ColumnName="product_code" />
           <ScalarProperty Name="sale_id" ColumnName="sale_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductCategory">
+      <EntityTypeMapping TypeName="SalesDBModel.ProductCategory">
+        <MappingFragment StoreEntitySet="ProductCategory">
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
