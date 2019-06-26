@@ -3,7 +3,7 @@
         $scope.pageno = 1;
         $scope.Count = 0;
         $scope.productList = [];
-        $scope.pagesize = 6;
+        $scope.pagesize = 8;
         $scope.getData = function (pageno) {
 
             PageService.ProductPaging(pageno, $scope.pagesize).then(function (result) {
