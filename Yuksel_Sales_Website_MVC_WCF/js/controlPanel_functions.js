@@ -11,11 +11,13 @@ app.controller("myCtrl", function ($scope, $http) {
         url: "http://localhost:38456/Service.svc/json/getProducts",
     }).then(function mySucces(response) {
         var jsonData = JSON.parse(response.data.substring(response.data.lastIndexOf("["), response.data.lastIndexOf("]") + 1));
-        $scope.records = jsonData;
+        $scope.data = jsonData;
+        $scope.getFilteredData(1);
     }, function myError(error) {
         alert(error);
     });
-
+    $scope.pageSize = 25;
+    $scope.selectedPage = 1;
 
     //The update method can be used when updating products.
     $scope.updateProduct = function (item) {
@@ -23,6 +25,21 @@ app.controller("myCtrl", function ($scope, $http) {
         alert(tableProducts.rows[item].cells[4].children[0].value);
     }
 
+
+    $scope.pageChangerLeft = function () {
+        $scope.selectedPage -= 1;
+        $scope.getFilteredData($scope.selectedPage);
+    }
+
+
+    $scope.pageChangerRight = function () {
+        $scope.selectedPage += 1;
+        $scope.getFilteredData($scope.selectedPage);
+    }
+
+    $scope.getFilteredData = function (pageNumber) {
+        $scope.records = $scope.data.slice(((pageNumber - 1) * $scope.pageSize), ((pageNumber - 1) * $scope.pageSize) + $scope.pageSize);
+    }
 
 });
 

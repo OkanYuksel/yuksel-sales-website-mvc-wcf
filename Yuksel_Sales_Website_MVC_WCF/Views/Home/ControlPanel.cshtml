@@ -226,6 +226,12 @@
                                 <tr class="spacer"></tr>
                             </tbody>
                         </table>
+                        <div>
+                            <ul class="pagination">
+                                <li><button type="button" class="btn btn-info btn-lg" ng-disabled="selectedPage == 1" ng-click="pageChangerLeft()"><</button></li>
+                                <li><button type="button" class="btn btn-info btn-lg" ng-disabled="selectedPage >= data.length/pageSize" ng-click="pageChangerRight()">></button></li>
+                            </ul>
+                        </div>
                     </div>
                     <!---TABLE CONTENT END-->
                 </div>
