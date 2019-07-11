@@ -18,10 +18,6 @@ C:\Users\pc\Source\Repos\TemplateTest2\WcfServiceLibrary\bin\Debug\EntityFramewo
 C:\Users\pc\Source\Repos\TemplateTest2\WcfServiceLibrary\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\pc\Source\Repos\TemplateTest2\WcfServiceLibrary\bin\Debug\EntityFramework.xml
 C:\Users\pc\Source\Repos\TemplateTest2\WcfServiceLibrary\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\pc\Source\Repos\Yuksel_Sales_Website_MVC_WCF\WcfServiceLibrary\obj\Debug\WcfServiceLibrary.csprojResolveAssemblyReference.cache
-C:\Users\pc\Source\Repos\Yuksel_Sales_Website_MVC_WCF\WcfServiceLibrary\obj\Debug\WcfServiceLibrary.csproj.CoreCompileInputs.cache
-C:\Users\pc\Source\Repos\Yuksel_Sales_Website_MVC_WCF\WcfServiceLibrary\obj\Debug\WcfServiceLibrary.dll
-C:\Users\pc\Source\Repos\Yuksel_Sales_Website_MVC_WCF\WcfServiceLibrary\obj\Debug\WcfServiceLibrary.pdb
 C:\Users\pc\Source\Repos\Yuksel_Sales_Website_MVC_WCF\WcfServiceLibrary\bin\Debug\WcfServiceLibrary.dll.config
 C:\Users\pc\Source\Repos\Yuksel_Sales_Website_MVC_WCF\WcfServiceLibrary\bin\Debug\WcfServiceLibrary.dll
 C:\Users\pc\Source\Repos\Yuksel_Sales_Website_MVC_WCF\WcfServiceLibrary\bin\Debug\WcfServiceLibrary.pdb
@@ -31,3 +27,7 @@ C:\Users\pc\Source\Repos\Yuksel_Sales_Website_MVC_WCF\WcfServiceLibrary\bin\Debu
 C:\Users\pc\Source\Repos\Yuksel_Sales_Website_MVC_WCF\WcfServiceLibrary\bin\Debug\EntityFramework.xml
 C:\Users\pc\Source\Repos\Yuksel_Sales_Website_MVC_WCF\WcfServiceLibrary\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\pc\Source\Repos\Yuksel_Sales_Website_MVC_WCF\WcfServiceLibrary\bin\Debug\Newtonsoft.Json.xml
+C:\Users\pc\Source\Repos\Yuksel_Sales_Website_MVC_WCF\WcfServiceLibrary\obj\Debug\WcfServiceLibrary.csprojResolveAssemblyReference.cache
+C:\Users\pc\Source\Repos\Yuksel_Sales_Website_MVC_WCF\WcfServiceLibrary\obj\Debug\WcfServiceLibrary.csproj.CoreCompileInputs.cache
+C:\Users\pc\Source\Repos\Yuksel_Sales_Website_MVC_WCF\WcfServiceLibrary\obj\Debug\WcfServiceLibrary.dll
+C:\Users\pc\Source\Repos\Yuksel_Sales_Website_MVC_WCF\WcfServiceLibrary\obj\Debug\WcfServiceLibrary.pdb

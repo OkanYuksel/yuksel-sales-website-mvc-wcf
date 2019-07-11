@@ -9,11 +9,13 @@
     <Property Name="product_description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="product_price" Type="Double" Nullable="false" />
     <Property Name="product_stock_count" Type="Int32" Nullable="false" />
+    <Property Name="product_category_id" Type="Int32" />
   </EntityType>
   <EntityContainer Name="SalesDBEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Products" EntityType="Self.Products" />
     <EntitySet Name="Users" EntityType="SalesDBModel.Users" />
     <EntitySet Name="Sales" EntityType="SalesDBModel.Sales" />
+    <EntitySet Name="ProductCategory" EntityType="SalesDBModel.ProductCategory" />
   </EntityContainer>
   <EntityType Name="Users">
     <Key>
@@ -31,5 +33,12 @@
     <Property Name="product_code" Type="Int32" />
     <Property Name="sale_count" Type="Int32" />
     <Property Name="sale_date" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="ProductCategory">
+    <Key>
+      <PropertyRef Name="CategoryID" />
+    </Key>
+    <Property Name="CategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
 </Schema>

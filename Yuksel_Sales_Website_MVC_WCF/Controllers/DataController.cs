@@ -81,17 +81,20 @@ namespace Yuksel_Sales_Website_MVC_WCF.Controllers
 
 
         [HttpPost]
-        public ActionResult UpdateProductStock(int product_code, int product_stock_count)
+        public RandomMessage UpdateProductStock(int product_code, int product_stock_count)
         {
+            string response = "Empty String";
             try
             {
             clsUpdateStockRequest requestDataObj = new clsUpdateStockRequest { product_code = product_code, product_stock_count = product_stock_count };
             string strData = Newtonsoft.Json.JsonConvert.SerializeObject(requestDataObj);
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://localhost:38456/Service.svc/json/UpdateProduct");
+            
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://localhost:38456/Service.svc/json/UpdateProductStock");
             request.Method = "PUT";
             request.ContentType = "application/json";
             request.ContentLength = strData.Length;
             using (Stream webStream = request.GetRequestStream())
+
             using (StreamWriter requestWriter = new StreamWriter(webStream, System.Text.Encoding.ASCII))
             {
                 requestWriter.Write(strData);
@@ -101,7 +104,7 @@ namespace Yuksel_Sales_Website_MVC_WCF.Controllers
                 using (Stream webStream = webResponse.GetResponseStream() ?? Stream.Null)
                 using (StreamReader responseReader = new StreamReader(webStream))
                 {
-                    string response = responseReader.ReadToEnd();
+                     response = responseReader.ReadToEnd();
                     Console.Out.WriteLine(response);
                 }
             }
@@ -109,10 +112,50 @@ namespace Yuksel_Sales_Website_MVC_WCF.Controllers
             {
                 Console.Out.WriteLine("-----------------");
                 Console.Out.WriteLine(ex.Message);
+                return new RandomMessage { Message = ex.Message };
             }
 
-            return RedirectToAction("Index", "Home");
+            return new RandomMessage { Message = response };
         }
+
+        [HttpPost]
+        public RandomMessage DeleteProduct(int product_code)
+        {
+            string response = "Empty String";
+            try
+            {
+                clsDeleteProductRequest requestDataObj = new clsDeleteProductRequest { product_code = product_code};
+                string strData = Newtonsoft.Json.JsonConvert.SerializeObject(requestDataObj);
+
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://localhost:38456/Service.svc/json/DeleteProduct");
+                request.Method = "PUT";
+                request.ContentType = "application/json";
+                request.ContentLength = strData.Length;
+                using (Stream webStream = request.GetRequestStream())
+
+                using (StreamWriter requestWriter = new StreamWriter(webStream, System.Text.Encoding.ASCII))
+                {
+                    requestWriter.Write(strData);
+                }
+
+                WebResponse webResponse = request.GetResponse();
+                using (Stream webStream = webResponse.GetResponseStream() ?? Stream.Null)
+                using (StreamReader responseReader = new StreamReader(webStream))
+                {
+                    response = responseReader.ReadToEnd();
+                    Console.Out.WriteLine(response);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.Out.WriteLine("-----------------");
+                Console.Out.WriteLine(ex.Message);
+                return new RandomMessage { Message = ex.Message };
+            }
+
+            return new RandomMessage { Message = response };
+        }
+
 
         [HttpPost]
         public int UserValidation(string username, string password)

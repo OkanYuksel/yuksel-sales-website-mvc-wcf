@@ -41,6 +41,13 @@ namespace WcfServiceLibrary
 
         [OperationContract]
         [WebInvoke(Method = "PUT", ResponseFormat = WebMessageFormat.Json,
+      RequestFormat = WebMessageFormat.Json,
+      BodyStyle = WebMessageBodyStyle.Wrapped,
+      UriTemplate = "json/DeleteProduct")]
+        string DeleteProduct(int product_code);
+
+        [OperationContract]
+        [WebInvoke(Method = "PUT", ResponseFormat = WebMessageFormat.Json,
 RequestFormat = WebMessageFormat.Json,
 BodyStyle = WebMessageBodyStyle.Wrapped,
 UriTemplate = "json/UserValidation")]

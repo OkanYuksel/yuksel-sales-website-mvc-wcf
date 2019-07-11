@@ -28,5 +28,6 @@ namespace WcfServiceLibrary
         public virtual DbSet<Products> Products { get; set; }
         public virtual DbSet<Users> Users { get; set; }
         public virtual DbSet<Sales> Sales { get; set; }
+        public virtual DbSet<ProductCategory> ProductCategory { get; set; }
     }
 }

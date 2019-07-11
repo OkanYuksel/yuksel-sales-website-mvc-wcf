@@ -5,6 +5,15 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="SalesDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SalesDB.dbo.ProductCategory' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ProductCategory">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="Products">
           <Key>
             <PropertyRef Name="product_code" />
@@ -14,6 +23,7 @@
           <Property Name="product_description" Type="nvarchar(max)" />
           <Property Name="product_price" Type="float" Nullable="false" />
           <Property Name="product_stock_count" Type="int" Nullable="false" />
+          <Property Name="product_category_id" Type="int" />
         </EntityType>
         <EntityType Name="Sales">
           <Key>
@@ -36,6 +46,12 @@
           <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sales" EntityType="Self.Sales" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductCategory" EntityType="Self.ProductCategory" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ProductCategory].[CategoryID] AS [CategoryID], 
+    [ProductCategory].[CategoryName] AS [CategoryName]
+    FROM [dbo].[ProductCategory] AS [ProductCategory]</DefiningQuery>
+          </EntitySet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -50,11 +66,13 @@
           <Property Name="product_description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="product_price" Type="Double" Nullable="false" />
           <Property Name="product_stock_count" Type="Int32" Nullable="false" />
+          <Property Name="product_category_id" Type="Int32" />
         </EntityType>
         <EntityContainer Name="SalesDBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Products" EntityType="Self.Products" />
           <EntitySet Name="Users" EntityType="SalesDBModel.Users" />
           <EntitySet Name="Sales" EntityType="SalesDBModel.Sales" />
+          <EntitySet Name="ProductCategory" EntityType="SalesDBModel.ProductCategory" />
         </EntityContainer>
         <EntityType Name="Users">
           <Key>
@@ -73,6 +91,13 @@
           <Property Name="sale_count" Type="Int32" />
           <Property Name="sale_date" Type="DateTime" Precision="3" />
         </EntityType>
+        <EntityType Name="ProductCategory">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -82,6 +107,7 @@
           <EntitySetMapping Name="Products">
             <EntityTypeMapping TypeName="SalesDBModel.Products">
               <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="product_category_id" ColumnName="product_category_id" />
                 <ScalarProperty Name="product_stock_count" ColumnName="product_stock_count" />
                 <ScalarProperty Name="product_code" ColumnName="product_code" />
                 <ScalarProperty Name="product_name" ColumnName="product_name" />
@@ -106,6 +132,14 @@
                 <ScalarProperty Name="sale_count" ColumnName="sale_count" />
                 <ScalarProperty Name="product_code" ColumnName="product_code" />
                 <ScalarProperty Name="sale_id" ColumnName="sale_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductCategory">
+            <EntityTypeMapping TypeName="SalesDBModel.ProductCategory">
+              <MappingFragment StoreEntitySet="ProductCategory">
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
