@@ -1,7 +1,7 @@
 ﻿(function (app) {
     app.controller("modelController", function ($scope, PageService) {
         $scope.pageno = 1;
-        $scope.Count = 0;
+        $scope.count = 10;
         $scope.productList = [];
         $scope.pagesize = 8;
         $scope.getData = function (pageno) {
